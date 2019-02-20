@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+    <TextView
+        android:id="@+id/tv_availability"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Availability Prognosis"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#212121"
+        android:textSize="18dp"
+        />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barchart"
+        android:layout_below="@+id/tv_day_of_week_mon"
+        android:layout_marginTop="15dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="180dp"></com.github.mikephil.charting.charts.BarChart>
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_below="@+id/barchart"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_day_of_week_mon"
+        android:text="Mon"
+        android:background="@drawable/shape_roundconer_day_of_week"
+        android:layout_below="@+id/tv_availability"
+        android:layout_marginTop="20dp"
+        android:textSize="12dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_width="40dp"
+        android:layout_height="24dp" />
+    <TextView
+        android:id="@+id/tv_day_of_week_tue"
+        android:layout_toRightOf="@+id/tv_day_of_week_mon"
+        android:text="Tue"
+        android:background="@drawable/shape_roundconer_day_of_week_selected"
+        android:gravity="center"
+        android:layout_below="@+id/tv_availability"
+        android:layout_marginTop="20dp"
+        android:textSize="12dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+
+        android:layout_width="40dp"
+        android:layout_height="24dp" />
+    <TextView
+        android:id="@+id/tv_day_of_week_wed"
+        android:text="Wed"
+        android:layout_toRightOf="@id/tv_day_of_week_tue"
+        android:background="@drawable/shape_roundconer_day_of_week"
+
+        android:layout_below="@+id/tv_availability"
+        android:layout_marginTop="20dp"
+        android:textSize="12dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+
+        android:gravity="center"
+        android:layout_width="40dp"
+        android:layout_height="24dp"
+        />
+    <TextView
+        android:id="@+id/tv_day_of_week_Thu"
+        android:text="Thu"
+        android:layout_toRightOf="@+id/tv_day_of_week_wed"
+        android:background="@drawable/shape_roundconer_day_of_week"
+
+        android:layout_below="@+id/tv_availability"
+        android:layout_marginTop="20dp"
+        android:textSize="12dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_width="40dp"
+        android:layout_height="24dp"/>
+    <TextView
+        android:id="@+id/tv_day_of_week_Fri"
+        android:text="Fri"
+        android:layout_toRightOf="@+id/tv_day_of_week_Thu"
+        android:background="@drawable/shape_roundconer_day_of_week"
+
+        android:layout_below="@+id/tv_availability"
+        android:layout_marginTop="20dp"
+        android:textSize="12dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_width="40dp"
+        android:layout_height="24dp" />
+    <TextView
+        android:id="@+id/tv_day_of_week_sat"
+        android:layout_toRightOf="@+id/tv_day_of_week_Fri"
+        android:text="Sat"
+        android:background="@drawable/shape_roundconer_day_of_week"
+
+        android:layout_below="@+id/tv_availability"
+        android:layout_marginTop="20dp"
+        android:textSize="12dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_width="40dp"
+        android:layout_height="24dp" />
+    <TextView
+        android:id="@+id/tv_day_of_week_sun"
+        android:text="Sun"
+        android:layout_toRightOf="@+id/tv_day_of_week_sat"
+        android:background="@drawable/shape_roundconer_day_of_week"
+
+        android:layout_below="@+id/tv_availability"
+        android:layout_marginTop="20dp"
+        android:textSize="12dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_width="40dp"
+        android:layout_height="24dp" />
+
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_above="@+id/btn"
+        android:layout_marginBottom="30dp"
+
+        android:textSize="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn"
+        android:text="GO"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn_reset"
+        android:text="Reset"
+        android:layout_alignParentBottom="true"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>
