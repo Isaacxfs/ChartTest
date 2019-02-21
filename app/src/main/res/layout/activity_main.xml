@@ -146,7 +146,7 @@
 
     <Button
         android:id="@+id/btn"
-        android:text="GO"
+        android:text="Go-YAxis"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_width="100dp"
@@ -155,6 +155,13 @@
         android:id="@+id/btn_reset"
         android:text="Reset"
         android:layout_alignParentBottom="true"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn_gox"
+        android:text="Go-XAxis"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:layout_width="100dp"
         android:layout_height="wrap_content" />
 

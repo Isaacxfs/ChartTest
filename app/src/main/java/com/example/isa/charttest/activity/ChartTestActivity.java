@@ -37,7 +37,7 @@ import java.util.List;
  */
 public class ChartTestActivity extends AppCompatActivity implements View.OnClickListener {
     private BarChart chart;
-    private Button btnGo,btnReset;
+    private Button btnGo,btnReset,btnGoX;
     private TextView tvWeekSelectMon, tvWeekSelectTue, tvWeekSelectWed, tvWeekSelectThu, tvWeekSelectFri, tvWeekSelectSat, tvWeekSelectSun;
     private List<DummyDataStructure> dummyDataStructureList;
     private List<TextView> textViewList;
@@ -46,6 +46,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
     private Entry selectedEntry;
     private XYaxisMarkerView mv;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +54,8 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_main);
         initDummyData();
         initViews();
+        initSeekBar();
+        initChartForWeekDays();
     }
 
 
@@ -325,8 +328,13 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         FullScreenStyleUtils.setStatusBarMode(this, true);
     }
 
-    private void startAnim() {
+    private void startAnimY() {
         chart.animateY(500);
+        chart.invalidate();
+    }
+
+    private void startAnimX(){
+        chart.animateX(500);
         chart.invalidate();
     }
 
@@ -351,6 +359,13 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
     private void initViews() {
         seekBar = findViewById(R.id.seekbar);
         chart = findViewById(R.id.barchart);
+        btnGoX = findViewById(R.id.btn_gox);
+        btnGoX.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startAnimX();
+            }
+        });
         btnReset = findViewById(R.id.btn_reset);
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -362,7 +377,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startAnim();
+                startAnimY();
             }
         });
         textViewList = new ArrayList<>();
@@ -388,8 +403,6 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         tvWeekSelectSun.setOnClickListener(this);
         textViewList.add(tvWeekSelectSun);
         tvStatus = findViewById(R.id.tv_status);
-        initSeekBar();
-        initChartForWeekDays();
     }
 
     private void initChartForWeekDays() {
@@ -400,10 +413,16 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
                 break;
             }
         }
-        drawChart(dummyDataStructureList.get(index).getEntries());
+        init(dummyDataStructureList.get(index).getEntries());
     }
 
-    private void drawChart(List<BarEntry> entries) {
+    private void init(List<BarEntry> entries) {
+        initYAxis();
+        initXAxis();
+        initChart(entries);
+    }
+
+    private void initChart(List<BarEntry> entries){
         BarDataSet dataSet = new BarDataSet(entries, "");
         dataSet.setGradientColor(Color.rgb(89, 157, 134), Color.rgb(135, 202, 187));
         dataSet.setDrawValues(false);
@@ -427,11 +446,6 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
                 seekBar.setVisibility(View.INVISIBLE);
             }
         });
-
-        initYAxis();
-        initXAxis();
-
-        // chart.setScaleXEnabled(false);
         chart.setDragEnabled(true);
         chart.setDoubleTapToZoomEnabled(false);
         chart.setTouchEnabled(true);
@@ -453,15 +467,14 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
                 dummyDataStructureList.get(i).setSelected(true);
                 textViewList.get(i).setBackgroundResource(R.drawable.shape_roundconer_day_of_week_selected);
                 textViewList.get(i).setTextColor(Color.WHITE);
-                drawChart(dummyDataStructureList.get(i).getEntries());
-                startAnim();
+                init(dummyDataStructureList.get(i).getEntries());
+                startAnimY();
             } else {
                 dummyDataStructureList.get(i).setSelected(false);
                 textViewList.get(i).setTextColor(Color.parseColor("#8A000000"));
                 textViewList.get(i).setBackgroundResource(R.drawable.shape_roundconer_day_of_week);
             }
         }
-
     }
 
     private void initYAxis(){
@@ -488,7 +501,6 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         left.setGranularityEnabled(true);
         // no right axis
         chart.getAxisRight().setEnabled(false);
-        //chart.getAxisLeft().setEnabled(false);
     }
 
     private void initXAxis(){
@@ -506,7 +518,6 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
 //        xAxis.setAxisMinimum(1);
         xAxis.setGranularity(1);
         xAxis.setGranularityEnabled(true);
-        //xAxis.draw
         xAxis.setLabelCount(12);
 
         chart.setOnChartGestureListener(new OnChartGestureListener() {
@@ -551,6 +562,10 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
             }
         });
 
+       initMarkerView(customDecimal);
+    }
+
+    private void initMarkerView(BaseValueFormatter customDecimal){
         mv = new XYaxisMarkerView(this, customDecimal);
         mv.setChartView(chart); // For bounds control
         chart.setMarker(mv); // Set the marker to the chart
