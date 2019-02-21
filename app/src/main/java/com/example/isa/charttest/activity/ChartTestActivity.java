@@ -44,6 +44,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
     private TextView tvStatus;
     private SeekBar seekBar;
     private Entry selectedEntry;
+    private XYaxisMarkerView mv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -444,6 +445,8 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void getSelectedView(int id) {
+        chart.highlightValues(null);
+        seekBar.setVisibility(View.GONE);
         for (int i = 0; i < textViewList.size(); i++) {
             int temp = textViewList.get(i).getId();
             if (id == temp) {
@@ -458,6 +461,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
                 textViewList.get(i).setBackgroundResource(R.drawable.shape_roundconer_day_of_week);
             }
         }
+
     }
 
     private void initYAxis(){
@@ -547,7 +551,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
             }
         });
 
-        XYaxisMarkerView mv = new XYaxisMarkerView(this, customDecimal);
+        mv = new XYaxisMarkerView(this, customDecimal);
         mv.setChartView(chart); // For bounds control
         chart.setMarker(mv); // Set the marker to the chart
     }
