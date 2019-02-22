@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">ChartTest</string>
+    <string name="str_availability_prognosis_title">Availability Prognosis</string>
+    <string name="str_mon">Mon</string>
+    <string name="str_tue">Tue</string>
+    <string name="str_wed">Wed</string>
+    <string name="str_thu">Thu</string>
+    <string name="str_sat">Sat</string>
+    <string name="str_sun">Sun</string>
+    <string name="str_go_yaxis">Go-YAxis</string>
+    <string name="str_reset">Reset</string>
+    <string name="str_go_xaxis">Go-XAxis</string>
+    <string name="str_on_chart_gesture_start">onChartGestureStart:</string>
+    <string name="str_on_chart_gesture_end">onChartGestureEnd:</string>
+    <string name="str_on_chart_long_pressed">onChartLongPressed:</string>
+    <string name="str_on_chart_double_tapped">onChartDoubleTapped:</string>
+    <string name="str_on_chart_single_tapped">onChartSingleTapped:</string>
+    <string name="str_chart_fling">onChartFling:</string>
+    <string name="str_on_chart_scale">onChartScale:</string>
+    <string name="str_on_chart_translate">onChartTranslate:</string>
 </resources>

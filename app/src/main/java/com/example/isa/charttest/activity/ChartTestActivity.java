@@ -1,6 +1,7 @@
 package com.example.isa.charttest.activity;
 
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -65,7 +66,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         DummyDataStructure d = new DummyDataStructure();
         d.setDayOfWeek("Mon");
         d.setSelected(false);
-        List<BarEntry> entries = new ArrayList<BarEntry>();
+        List<BarEntry> entries = new ArrayList<>();
         entries.add(new BarEntry(1.0f, 20.0f));
         entries.add(new BarEntry(2.0f, 45.0f));
         entries.add(new BarEntry(3.0f, 66.0f));
@@ -102,7 +103,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         d = new DummyDataStructure();
         d.setDayOfWeek("Tue");
         d.setSelected(true);
-        entries = new ArrayList<BarEntry>();
+        entries = new ArrayList<>();
         entries.add(new BarEntry(1.0f, 6.0f));
         entries.add(new BarEntry(2.0f, 5.0f));
         entries.add(new BarEntry(3.0f, 26.0f));
@@ -139,7 +140,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         d = new DummyDataStructure();
         d.setDayOfWeek("Wed");
         d.setSelected(false);
-        entries = new ArrayList<BarEntry>();
+        entries = new ArrayList<>();
         entries.add(new BarEntry(1.0f, 40.0f));
         entries.add(new BarEntry(2.0f, 45.0f));
         entries.add(new BarEntry(3.0f, 66.0f));
@@ -176,7 +177,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         d = new DummyDataStructure();
         d.setDayOfWeek("Thu");
         d.setSelected(false);
-        entries = new ArrayList<BarEntry>();
+        entries = new ArrayList<>();
         entries.add(new BarEntry(1.0f, 40.0f));
         entries.add(new BarEntry(2.0f, 45.0f));
         entries.add(new BarEntry(3.0f, 26.0f));
@@ -213,7 +214,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         d = new DummyDataStructure();
         d.setDayOfWeek("Fri");
         d.setSelected(false);
-        entries = new ArrayList<BarEntry>();
+        entries = new ArrayList<>();
         entries.add(new BarEntry(1.0f, 20.0f));
         entries.add(new BarEntry(2.0f, 45.0f));
         entries.add(new BarEntry(3.0f, 55.0f));
@@ -250,7 +251,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         d = new DummyDataStructure();
         d.setDayOfWeek("Sat");
         d.setSelected(false);
-        entries = new ArrayList<BarEntry>();
+        entries = new ArrayList<>();
         entries.add(new BarEntry(1.0f, 20.0f));
         entries.add(new BarEntry(2.0f, 44.0f));
         entries.add(new BarEntry(3.0f, 66.0f));
@@ -287,7 +288,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         d = new DummyDataStructure();
         d.setDayOfWeek("Sun");
         d.setSelected(false);
-        entries = new ArrayList<BarEntry>();
+        entries = new ArrayList<>();
         entries.add(new BarEntry(1.0f, 50.0f));
         entries.add(new BarEntry(2.0f, 85.0f));
         entries.add(new BarEntry(3.0f, 46.0f));
@@ -410,6 +411,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         for (int i = 0; i < dummyDataStructureList.size(); i++) {
             if (dummyDataStructureList.get(i).isSelected()) {
                 index = i;
+                setWeekTagSelected(index);
                 break;
             }
         }
@@ -465,14 +467,12 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
             int temp = textViewList.get(i).getId();
             if (id == temp) {
                 dummyDataStructureList.get(i).setSelected(true);
-                textViewList.get(i).setBackgroundResource(R.drawable.shape_roundconer_day_of_week_selected);
-                textViewList.get(i).setTextColor(Color.WHITE);
+                setWeekTagSelected(i);
                 init(dummyDataStructureList.get(i).getEntries());
                 startAnimY();
             } else {
                 dummyDataStructureList.get(i).setSelected(false);
-                textViewList.get(i).setTextColor(Color.parseColor("#8A000000"));
-                textViewList.get(i).setBackgroundResource(R.drawable.shape_roundconer_day_of_week);
+                unSetWeekTagSelected(i);
             }
         }
     }
@@ -523,42 +523,42 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         chart.setOnChartGestureListener(new OnChartGestureListener() {
             @Override
             public void onChartGestureStart(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
-                tvStatus.setText("onChartGestureStart: "+ me.toString());
+                tvStatus.setText(getString(R.string.str_on_chart_gesture_start)+ me.toString());
             }
 
             @Override
             public void onChartGestureEnd(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
-                tvStatus.setText("onChartGestureEnd: "+ me.toString());
+                tvStatus.setText(getString(R.string.str_on_chart_gesture_end)+ me.toString());
             }
 
             @Override
             public void onChartLongPressed(MotionEvent me) {
-                tvStatus.setText("onChartLongPressed: "+ me.toString());
+                tvStatus.setText(getString(R.string.str_on_chart_long_pressed)+ me.toString());
             }
 
             @Override
             public void onChartDoubleTapped(MotionEvent me) {
-                tvStatus.setText("onChartDoubleTapped: "+ me.toString());
+                tvStatus.setText(getString(R.string.str_on_chart_double_tapped)+ me.toString());
             }
 
             @Override
             public void onChartSingleTapped(MotionEvent me) {
-                tvStatus.setText("onChartSingleTapped: "+ me.toString());
+                tvStatus.setText(getString(R.string.str_on_chart_single_tapped)+ me.toString());
             }
 
             @Override
             public void onChartFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY) {
-                tvStatus.setText("onChartFling: "+ "x: "+velocityX+" y: "+velocityY);
+                tvStatus.setText(getString(R.string.str_chart_fling)+ "x: "+velocityX+" y: "+velocityY);
             }
 
             @Override
             public void onChartScale(MotionEvent me, float scaleX, float scaleY) {
-                tvStatus.setText("onChartScale: "+ "x: "+scaleX+" y: "+scaleY);
+                tvStatus.setText(getString(R.string.str_on_chart_scale)+ "x: "+scaleX+" y: "+scaleY);
             }
 
             @Override
             public void onChartTranslate(MotionEvent me, float dX, float dY) {
-                tvStatus.setText("onChartTranslate: "+ "x: "+dX+" y: "+dY);
+                tvStatus.setText(getString(R.string.str_on_chart_translate)+ "x: "+dX+" y: "+dY);
             }
         });
 
@@ -569,5 +569,15 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         mv = new XYaxisMarkerView(this, customDecimal);
         mv.setChartView(chart); // For bounds control
         chart.setMarker(mv); // Set the marker to the chart
+    }
+
+    private void setWeekTagSelected(int index){
+        textViewList.get(index).setBackgroundResource(R.drawable.shape_roundconer_day_of_week_selected);
+        textViewList.get(index).setTextColor(Color.WHITE);
+    }
+
+    private void unSetWeekTagSelected(int index){
+        textViewList.get(index).setTextColor(ContextCompat.getColor(ChartTestActivity.this,R.color.weekdaytag_grey));
+        textViewList.get(index).setBackgroundResource(R.drawable.shape_roundconer_day_of_week);
     }
 }

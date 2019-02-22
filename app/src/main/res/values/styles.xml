@@ -8,4 +8,27 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="week_day_tag">
+        <item name="android:background">@drawable/shape_roundconer_day_of_week</item>
+        <item name="android:layout_below">@+id/tv_availability</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">24dp</item>
+    </style>
+
+
+    <!--android:background="@drawable/shape_roundconer_day_of_week"-->
+    <!--android:layout_below="@+id/tv_availability"-->
+    <!--android:layout_marginTop="20dp"-->
+    <!--android:textSize="12dp"-->
+    <!--android:layout_marginStart="10dp"-->
+    <!--android:textStyle="bold"-->
+    <!--android:gravity="center"-->
+    <!--android:layout_width="40dp"-->
+    <!--android:layout_height="24dp"-->
+    <!---->
 </resources>

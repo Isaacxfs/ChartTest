@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
    >
@@ -11,9 +9,9 @@
         android:id="@+id/tv_availability"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Availability Prognosis"
+        android:text="@string/str_availability_prognosis_title"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:textColor="#212121"
         android:textSize="18dp"
         />
@@ -22,9 +20,8 @@
         android:id="@+id/barchart"
         android:layout_below="@+id/tv_day_of_week_mon"
         android:layout_marginTop="15dp"
-
         android:layout_width="match_parent"
-        android:layout_height="180dp"></com.github.mikephil.charting.charts.BarChart>
+        android:layout_height="180dp"/>
 
     <SeekBar
         android:id="@+id/seekbar"
@@ -36,132 +33,64 @@
 
     <TextView
         android:id="@+id/tv_day_of_week_mon"
-        android:text="Mon"
-        android:background="@drawable/shape_roundconer_day_of_week"
-        android:layout_below="@+id/tv_availability"
-        android:layout_marginTop="20dp"
-        android:textSize="12dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_width="40dp"
-        android:layout_height="24dp" />
-    <TextView
-        android:id="@+id/tv_day_of_week_tue"
-        android:layout_toRightOf="@+id/tv_day_of_week_mon"
-        android:text="Tue"
-        android:background="@drawable/shape_roundconer_day_of_week_selected"
-        android:gravity="center"
-        android:layout_below="@+id/tv_availability"
-        android:layout_marginTop="20dp"
-        android:textSize="12dp"
-        android:layout_marginLeft="10dp"
-        android:textColor="#fff"
-        android:textStyle="bold"
-
-        android:layout_width="40dp"
-        android:layout_height="24dp" />
-    <TextView
-        android:id="@+id/tv_day_of_week_wed"
-        android:text="Wed"
-        android:layout_toRightOf="@id/tv_day_of_week_tue"
-        android:background="@drawable/shape_roundconer_day_of_week"
-
-        android:layout_below="@+id/tv_availability"
-        android:layout_marginTop="20dp"
-        android:textSize="12dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-
-        android:gravity="center"
-        android:layout_width="40dp"
-        android:layout_height="24dp"
+        android:text="@string/str_mon"
+        style="@style/week_day_tag"
         />
     <TextView
+        android:id="@+id/tv_day_of_week_tue"
+        android:layout_toEndOf="@+id/tv_day_of_week_mon"
+        android:text="@string/str_tue"
+        style="@style/week_day_tag"/>
+    <TextView
+        android:id="@+id/tv_day_of_week_wed"
+        android:text="@string/str_wed"
+        android:layout_toEndOf="@id/tv_day_of_week_tue"
+        style="@style/week_day_tag" />
+    <TextView
         android:id="@+id/tv_day_of_week_Thu"
-        android:text="Thu"
-        android:layout_toRightOf="@+id/tv_day_of_week_wed"
-        android:background="@drawable/shape_roundconer_day_of_week"
-
-        android:layout_below="@+id/tv_availability"
-        android:layout_marginTop="20dp"
-        android:textSize="12dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_width="40dp"
-        android:layout_height="24dp"/>
+        android:text="@string/str_thu"
+        android:layout_toEndOf="@+id/tv_day_of_week_wed"
+        style="@style/week_day_tag"/>
     <TextView
         android:id="@+id/tv_day_of_week_Fri"
         android:text="Fri"
-        android:layout_toRightOf="@+id/tv_day_of_week_Thu"
-        android:background="@drawable/shape_roundconer_day_of_week"
-
-        android:layout_below="@+id/tv_availability"
-        android:layout_marginTop="20dp"
-        android:textSize="12dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_width="40dp"
-        android:layout_height="24dp" />
+        android:layout_toEndOf="@+id/tv_day_of_week_Thu"
+        style="@style/week_day_tag" />
     <TextView
         android:id="@+id/tv_day_of_week_sat"
-        android:layout_toRightOf="@+id/tv_day_of_week_Fri"
-        android:text="Sat"
-        android:background="@drawable/shape_roundconer_day_of_week"
-
-        android:layout_below="@+id/tv_availability"
-        android:layout_marginTop="20dp"
-        android:textSize="12dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_width="40dp"
-        android:layout_height="24dp" />
+        android:layout_toEndOf="@+id/tv_day_of_week_Fri"
+        android:text="@string/str_sat"
+        style="@style/week_day_tag" />
     <TextView
         android:id="@+id/tv_day_of_week_sun"
-        android:text="Sun"
-        android:layout_toRightOf="@+id/tv_day_of_week_sat"
-        android:background="@drawable/shape_roundconer_day_of_week"
-
-        android:layout_below="@+id/tv_availability"
-        android:layout_marginTop="20dp"
-        android:textSize="12dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_width="40dp"
-        android:layout_height="24dp" />
-
-
+        android:text="@string/str_sun"
+        android:layout_toEndOf="@+id/tv_day_of_week_sat"
+        style="@style/week_day_tag" />
     <TextView
         android:id="@+id/tv_status"
         android:layout_above="@+id/btn"
         android:layout_marginBottom="30dp"
-
         android:textSize="12dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
     <Button
         android:id="@+id/btn"
-        android:text="Go-YAxis"
+        android:text="@string/str_go_yaxis"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_width="100dp"
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/btn_reset"
-        android:text="Reset"
+        android:text="@string/str_reset"
         android:layout_alignParentBottom="true"
         android:layout_width="100dp"
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/btn_gox"
-        android:text="Go-XAxis"
+        android:text="@string/str_go_xaxis"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_width="100dp"
         android:layout_height="wrap_content" />
 
