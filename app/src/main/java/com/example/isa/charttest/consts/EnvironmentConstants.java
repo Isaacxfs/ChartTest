@@ -2,9 +2,12 @@ package com.example.isa.charttest.consts;
 
 import android.graphics.Color;
 
+/**
+ * @author fangsxu
+ */
 public interface EnvironmentConstants {
-    int timePeriodForChartAnimOnXaxis = 500;
-    int timePeriodForChartAnimOnYaxis = 500;
+    int timePeriodForChartAnimOnXAxis = 500;
+    int timePeriodForChartAnimOnYAxis = 500;
     int maxValueForSeekBar = 100;
     int colorForGradientColorStart = Color.rgb(89, 157, 134);
     int colorForGradientColorEnd = Color.rgb(135, 202, 187);
@@ -21,4 +24,5 @@ public interface EnvironmentConstants {
     float xAxisTextSize = 10f;
     int xAxisGranularity = 1;
     int xAxisLabelCount = 12;
+
 }

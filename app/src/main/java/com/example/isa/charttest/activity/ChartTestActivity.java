@@ -331,12 +331,12 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void startAnimY() {
-        chart.animateY(timePeriodForChartAnimOnYaxis);
+        chart.animateY(timePeriodForChartAnimOnYAxis);
         chart.invalidate();
     }
 
     private void startAnimX(){
-        chart.animateX(timePeriodForChartAnimOnXaxis);
+        chart.animateX(timePeriodForChartAnimOnXAxis);
         chart.invalidate();
     }
 
