@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.isa.charttest.R;
+import com.example.isa.charttest.consts.EnvironmentConstants;
 import com.example.isa.charttest.util.FullScreenStyleUtils;
 import com.example.isa.charttest.view.XYaxisMarkerView;
 import com.example.isa.charttest.axisformat.BaseValueFormatter;
@@ -36,7 +37,7 @@ import java.util.List;
 /**
  * @author fangsxu
  */
-public class ChartTestActivity extends AppCompatActivity implements View.OnClickListener {
+public class ChartTestActivity extends AppCompatActivity implements View.OnClickListener, EnvironmentConstants {
     private BarChart chart;
     private Button btnGo,btnReset,btnGoX;
     private TextView tvWeekSelectMon, tvWeekSelectTue, tvWeekSelectWed, tvWeekSelectThu, tvWeekSelectFri, tvWeekSelectSat, tvWeekSelectSun;
@@ -330,17 +331,17 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void startAnimY() {
-        chart.animateY(500);
+        chart.animateY(timePeriodForChartAnimOnYaxis);
         chart.invalidate();
     }
 
     private void startAnimX(){
-        chart.animateX(500);
+        chart.animateX(timePeriodForChartAnimOnXaxis);
         chart.invalidate();
     }
 
     private void initSeekBar(){
-        seekBar.setMax(100);
+        seekBar.setMax(maxValueForSeekBar);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -426,7 +427,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
 
     private void initChart(List<BarEntry> entries){
         BarDataSet dataSet = new BarDataSet(entries, "");
-        dataSet.setGradientColor(Color.rgb(89, 157, 134), Color.rgb(135, 202, 187));
+        dataSet.setGradientColor(colorForGradientColorStart, colorForGradientColorEnd);
         dataSet.setDrawValues(false);
 
         BarData data = new BarData(dataSet);
@@ -451,8 +452,7 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         chart.setDragEnabled(true);
         chart.setDoubleTapToZoomEnabled(false);
         chart.setTouchEnabled(true);
-        chart.animateY(500);
-        chart.invalidate();
+        startAnimY();
     }
 
     @Override
@@ -486,18 +486,17 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         left.setDrawAxisLine(false);
         // no grid lines
         left.setDrawGridLines(true);
-        left.enableGridDashedLine(10f, 10f, 0f);
-        left.setTextSize(8f);
-        left.setTextColor(Color.rgb(153, 153, 153));
-        left.setGridColor(Color.rgb(229, 229, 229));
+        left.enableGridDashedLine(chartGridDashLineLength, chartGridDashSpaceLength, chartGridSashPhase);
+        left.setTextSize(yAxisTextSize);
+        left.setTextColor(axisTextColor);
+        left.setGridColor(yAxisGridColor);
         left.setValueFormatter(custom);
-        left.setAxisMinimum(0);
-        left.setAxisMaximum(100);
-        left.setLabelCount(6,false);
+        left.setAxisMinimum(yAxisMinimum);
+        left.setAxisMaximum(yAxisMaximum);
+        left.setLabelCount(yAxisLabelCount,false);
         // draw a zero line
         left.setDrawZeroLine(true);
-        left.setAxisMinimum(0);
-        left.setGranularity(10);
+        left.setGranularity(yAxisGranularity);
         left.setGranularityEnabled(true);
         // no right axis
         chart.getAxisRight().setEnabled(false);
@@ -510,15 +509,15 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         xAxis.setValueFormatter(customDecimal);
         // xAxis.setTextSize(10f);
         //xAxis.setTextColor(Color.RED);
-        xAxis.setTextColor(Color.rgb(153, 153, 153));
+        xAxis.setTextColor(axisTextColor);
         xAxis.setDrawAxisLine(false);
-        xAxis.setTextSize(10f);
+        xAxis.setTextSize(xAxisTextSize);
         xAxis.setDrawGridLines(false);
 //        xAxis.setAxisMaximum(23);
 //        xAxis.setAxisMinimum(1);
-        xAxis.setGranularity(1);
+        xAxis.setGranularity(xAxisGranularity);
         xAxis.setGranularityEnabled(true);
-        xAxis.setLabelCount(12);
+        xAxis.setLabelCount(xAxisLabelCount);
 
         chart.setOnChartGestureListener(new OnChartGestureListener() {
             @Override
