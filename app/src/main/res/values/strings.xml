@@ -18,4 +18,5 @@
     <string name="str_chart_fling">onChartFling:</string>
     <string name="str_on_chart_scale">onChartScale:</string>
     <string name="str_on_chart_translate">onChartTranslate:</string>
+    <string name="str_fri">Fri</string>
 </resources>

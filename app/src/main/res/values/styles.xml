@@ -20,15 +20,4 @@
         <item name="android:layout_height">24dp</item>
     </style>
 
-
-    <!--android:background="@drawable/shape_roundconer_day_of_week"-->
-    <!--android:layout_below="@+id/tv_availability"-->
-    <!--android:layout_marginTop="20dp"-->
-    <!--android:textSize="12dp"-->
-    <!--android:layout_marginStart="10dp"-->
-    <!--android:textStyle="bold"-->
-    <!--android:gravity="center"-->
-    <!--android:layout_width="40dp"-->
-    <!--android:layout_height="24dp"-->
-    <!---->
 </resources>

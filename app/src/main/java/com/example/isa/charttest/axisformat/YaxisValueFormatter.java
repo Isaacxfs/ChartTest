@@ -11,7 +11,7 @@ public class YaxisValueFormatter extends BaseValueFormatter
 {
 
     private final DecimalFormat mFormat;
-    private String suffix;
+    private final String suffix;
 
     public YaxisValueFormatter(String suffix) {
         mFormat = new DecimalFormat("###,###,###,###");

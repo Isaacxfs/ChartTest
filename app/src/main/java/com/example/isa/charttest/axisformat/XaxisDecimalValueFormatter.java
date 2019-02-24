@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
  */
 public class XaxisDecimalValueFormatter extends BaseValueFormatter {
     private final DecimalFormat mFormat;
-    private String suffix;
+    private final String suffix;
     public XaxisDecimalValueFormatter(String suffix) {
         mFormat = new DecimalFormat("0");
         this.suffix = suffix;
