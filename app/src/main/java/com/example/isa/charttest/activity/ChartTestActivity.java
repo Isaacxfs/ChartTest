@@ -434,7 +434,6 @@ public class ChartTestActivity extends AppCompatActivity implements View.OnClick
         chart.getLegend().setEnabled(false);
         chart.setDescription(null);
         chart.setData(data);
-
         chart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
             @Override
             public void onValueSelected(Entry e, Highlight h) {
