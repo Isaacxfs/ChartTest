@@ -1,4 +1,4 @@
-package com.example.isa.charttest
+package com.daimler.isa.charttest
 
 import org.junit.Test
 

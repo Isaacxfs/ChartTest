@@ -1,10 +1,10 @@
-package com.example.isa.charttest.view;
+package com.daimler.isa.charttest.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.widget.TextView;
-import com.example.isa.charttest.R;
-import com.example.isa.charttest.axisformat.BaseValueFormatter;
+import com.daimler.isa.charttest.R;
+import com.daimler.isa.charttest.axisformat.BaseValueFormatter;
 import com.github.mikephil.charting.components.MarkerView;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.highlight.Highlight;

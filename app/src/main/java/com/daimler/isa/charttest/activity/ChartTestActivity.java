@@ -1,4 +1,4 @@
-package com.example.isa.charttest.activity;
+package com.daimler.isa.charttest.activity;
 
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
@@ -12,13 +12,13 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.isa.charttest.R;
-import com.example.isa.charttest.consts.EnvironmentConstants;
-import com.example.isa.charttest.util.FullScreenStyleUtils;
-import com.example.isa.charttest.view.XYaxisMarkerView;
-import com.example.isa.charttest.axisformat.BaseValueFormatter;
-import com.example.isa.charttest.axisformat.YaxisValueFormatter;
-import com.example.isa.charttest.entity.DummyDataStructure;
+import com.daimler.isa.charttest.R;
+import com.daimler.isa.charttest.consts.EnvironmentConstants;
+import com.daimler.isa.charttest.util.FullScreenStyleUtils;
+import com.daimler.isa.charttest.view.XYaxisMarkerView;
+import com.daimler.isa.charttest.axisformat.BaseValueFormatter;
+import com.daimler.isa.charttest.axisformat.YaxisValueFormatter;
+import com.daimler.isa.charttest.entity.DummyDataStructure;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;

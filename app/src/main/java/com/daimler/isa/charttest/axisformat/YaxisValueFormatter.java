@@ -1,20 +1,23 @@
-package com.example.isa.charttest.axisformat;
+package com.daimler.isa.charttest.axisformat;
 
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
-
 import java.text.DecimalFormat;
 
 /**
  * @author fangsxu
  */
-public class XaxisDecimalValueFormatter extends BaseValueFormatter {
+public class YaxisValueFormatter extends BaseValueFormatter
+{
+
     private final DecimalFormat mFormat;
     private final String suffix;
-    public XaxisDecimalValueFormatter(String suffix) {
-        mFormat = new DecimalFormat("0");
+
+    public YaxisValueFormatter(String suffix) {
+        mFormat = new DecimalFormat("###,###,###,###");
         this.suffix = suffix;
     }
+
     @Override
     public String getFormattedValue(float value) {
         return mFormat.format(value) + suffix;

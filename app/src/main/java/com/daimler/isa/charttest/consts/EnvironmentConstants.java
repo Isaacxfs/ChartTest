@@ -1,4 +1,4 @@
-package com.example.isa.charttest.consts;
+package com.daimler.isa.charttest.consts;
 
 import android.graphics.Color;
 

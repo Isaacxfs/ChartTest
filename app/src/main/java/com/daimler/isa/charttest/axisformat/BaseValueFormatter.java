@@ -1,4 +1,4 @@
-package com.example.isa.charttest.axisformat;
+package com.daimler.isa.charttest.axisformat;
 
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.data.BarEntry;

@@ -1,4 +1,4 @@
-package com.example.isa.charttest.entity;
+package com.daimler.isa.charttest.entity;
 
 import com.github.mikephil.charting.data.BarEntry;
 import java.util.List;
